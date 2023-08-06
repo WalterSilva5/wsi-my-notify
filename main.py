@@ -3,7 +3,8 @@ import json
 import os
 from notify import notify_event
 
-schedule_events_file = 'schedule_events.json'
+user_path = os.path.expanduser('~')
+schedule_events_file = os.path.join(user_path, '.my-notify', 'schedule_events.json')
 
 def get_current_time():
     current_time = time()
@@ -21,8 +22,13 @@ def get_schedule_events():
             data = json.load(file)
             schedule_events_obj = data
     else:
+        print('schedule_events.json file not found, creating new file')
+        #if the directory does not exist, create it
+        if not os.path.exists(os.path.dirname(schedule_events_file)):
+            os.makedirs(os.path.dirname(schedule_events_file))
         with open(schedule_events_file, 'w') as file:
             json.dump(schedule_events_obj, file, indent=4)
+            
 
     return schedule_events_obj
 
