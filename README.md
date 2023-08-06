@@ -6,3 +6,5 @@ as notificações podem ser agendadas para serem enviadas em um determinado hor�
 o arquivo main.py é o agendador de notificações, ele é responsável por ler o arquivo de configuração e agendar as notificações.
 
 o arquivo manager.py é o responsável por gerenciar as notificações, ele é responsável por modificar o arquio schedule_events.json, que é o arquivo que contém as notificações agendadas.
+
+é possivel fazer build da aplicação executando o comando pyinstaller main.spec, o executável será gerado na pasta dist.

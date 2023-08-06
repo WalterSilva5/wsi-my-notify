@@ -1,7 +1,7 @@
 from time import sleep, ctime, time
-from notifypy import Notify
 import json
 import os
+from notify import notify_event
 
 schedule_events_file = 'schedule_events.json'
 
@@ -12,12 +12,6 @@ def get_current_time():
     current_time = current_time.split(':')
     current_hour, current_minute, current_second = [int(i) for i in current_time]
     return current_hour, current_minute, current_second
-
-def notify_event(event_name, event_description):
-    notification = Notify()
-    notification.title = event_name
-    notification.message = event_description
-    notification.send()
 
 def get_schedule_events():
     schedule_events_obj = []
@@ -42,7 +36,7 @@ def check_and_schedule_events():
             continue
 
         schedule_events_obj = get_schedule_events()
-
+        print(f'Number of events: {len(schedule_events_obj)}')
         for schedule_event_obj in schedule_events_obj:
             for scheduling_time in schedule_event_obj['scheduling_times']:
                 if int(scheduling_time['hour']) == current_hour and int(scheduling_time['minute']) == current_minute:
@@ -50,5 +44,9 @@ def check_and_schedule_events():
 
         sleep(60 - (time() % 60))
 
-if __name__ == "__main__":
-    check_and_schedule_events()
+notify_event('Notify', 'main.py is running')
+
+schedule_events_obj = get_schedule_events()
+print(f'Number of events: {len(schedule_events_obj)}')
+
+check_and_schedule_events()

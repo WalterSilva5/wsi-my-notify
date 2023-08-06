@@ -1,3 +1,4 @@
+altgraph==0.17.3
 dill==0.3.7
 jeepney==0.8.0
 loguru==0.6.0
@@ -5,8 +6,14 @@ multiprocess==0.70.15
 notify-py==0.3.42
 numpy==1.25.2
 pandas==2.0.3
+pyinstaller==5.13.0
+pyinstaller-hooks-contrib==2023.6
+PySide6==6.5.2
+PySide6-Addons==6.5.2
+PySide6-Essentials==6.5.2
 python-dateutil==2.8.2
 pytz==2023.3
+shiboken6==6.5.2
 simple-scheduler==1.11.12
 six==1.16.0
 tzdata==2023.3

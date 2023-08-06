@@ -1,4 +1,2 @@
-source ./venv/bin/activate
-python notify.py
-
+source venv/bin/activate
 python main.py
