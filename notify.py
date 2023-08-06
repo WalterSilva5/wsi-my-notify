@@ -11,4 +11,4 @@ def notify_event(event_name, event_description):
 
 
 if __name__ == '__main__':
-    notify_event('Test', 'Notification test')
+    notify_event('Notify', 'notify.py is running')
