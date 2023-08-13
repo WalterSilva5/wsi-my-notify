@@ -5,6 +5,7 @@ import os
 
 schedule_events_file = 'schedule_events.json'
 
+
 class ManagerWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -51,6 +52,8 @@ class ManagerWindow(QMainWindow):
         self.setCentralWidget(main_widget)
         self.load_events()
 
+        self.current_event_index = None
+
     def add_event(self):
         event_name = self.event_name_input.text()
         event_description = self.event_description_input.text()
@@ -75,22 +78,20 @@ class ManagerWindow(QMainWindow):
         self.load_events()
 
     def add_time(self):
-        selected_items = self.events_list.selectedItems()
-        if not selected_items:
+        if self.current_event_index is None:
             return
 
-        row = self.events_list.row(selected_items[0])
-        hour = int(self.hour_input.text())
-        minute = int(self.minute_input.text())
+        hour = self.hour_input.text()
+        minute = self.minute_input.text()
 
         with open(schedule_events_file, 'r') as file:
             events = json.load(file)
-            events[row]['scheduling_times'].append({'hour': hour, 'minute': minute})
+            events[self.current_event_index]['scheduling_times'].append({'hour': hour, 'minute': minute})
 
         with open(schedule_events_file, 'w') as file:
             json.dump(events, file)
 
-        self.select_event(selected_items[0])
+        self.select_event(self.events_list.item(self.current_event_index))
 
     def delete_event(self):
         selected_items = self.events_list.selectedItems()
@@ -112,12 +113,12 @@ class ManagerWindow(QMainWindow):
                 json.dump(events, file)
 
     def select_event(self, item):
-        row = self.events_list.row(item)
+        self.current_event_index = self.events_list.row(item)
         self.times_list.clear()
 
         with open(schedule_events_file, 'r') as file:
             events = json.load(file)
-            times = events[row]['scheduling_times']
+            times = events[self.current_event_index]['scheduling_times']
 
         for time in times:
             self.times_list.addItem(f"{time['hour']}:{time['minute']}")

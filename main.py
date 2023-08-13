@@ -7,11 +7,11 @@ user_path = os.path.expanduser('~')
 schedule_events_file = os.path.join(user_path, '.my-notify', 'schedule_events.json')
 
 def get_current_time():
-    current_time = time()
-    current_time = ctime(current_time)
-    current_time = current_time.split(' ')[4]
-    current_time = current_time.split(':')
-    current_hour, current_minute, current_second = [int(i) for i in current_time]
+    current_time = ctime().split(' ')[3].split(':')
+    current_hour = int(current_time[0])
+    current_minute = int(current_time[1])
+    current_second = int(current_time[2])
+
     return current_hour, current_minute, current_second
 
 def get_schedule_events():
@@ -23,7 +23,6 @@ def get_schedule_events():
             schedule_events_obj = data
     else:
         print('schedule_events.json file not found, creating new file')
-        #if the directory does not exist, create it
         if not os.path.exists(os.path.dirname(schedule_events_file)):
             os.makedirs(os.path.dirname(schedule_events_file))
         with open(schedule_events_file, 'w') as file:
