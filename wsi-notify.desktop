@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/user/.my-notify/main
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Meu Aplicativo
+Comment=Descrição do meu aplicativo
