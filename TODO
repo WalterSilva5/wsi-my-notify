@@ -1,0 +1,9 @@
+alterar de json para sqlite
+adicionar sqlalchemy
+reestrutruar aplicação
+criar interface para criação de eventos
+adicionar captcha a notificação de eventos, só deve ser fechada após o usuário resolver o captcha
+    o captcha deve ser simples, apenas preencher um campo com o texto que aparecer na tela, o texto deve ser gerado aleatoriamente
+adicionar diferentes sons de notificação
+adicionar diferentes imagens de notificação
+adicionar notificações em formato de popup no centro da tela
