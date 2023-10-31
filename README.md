@@ -1,6 +1,6 @@
 # wsi-my-notify
-<span>
-   <strong>Atenção!</strong>
+<span style='color: red'>
+   <strong>Atenção!</strong> este é um README inicial, feito com báse no que está sendo utilizado atualmente, quando o projeto for refatorado para um formato generico esse documento deve ser alterado para refletir a forma correata de utilização, sem caminhos realcionados a maquina do desenvolvedor.
 </span >
 
 esse projeto tem como objetivo criar notificações em certos periodos de tempo para o usuário.
