@@ -12,7 +12,11 @@ o arquivo manager.py é o responsável por gerenciar as notificações, ele é r
 
 o arquivo schedule_events.json deve estar dentro do diretorio /home/seu_usuario/.my-notify/schedule_events.json
 
-é possivel fazer build da aplicação executando o comando pyinstaller main.spec, o executável será gerado na pasta dist.
+é possivel fazer build da aplicação executando o comando 
+
+      `pyinstaller main.spec`
+
+o executável será gerado na pasta dist.
 
 Executando automaticamente o arquivo compilado:
 
@@ -31,7 +35,7 @@ Para executar um programa automaticamente ao iniciar o sistema Manjaro com linux
    ```
    [Desktop Entry]
    Type=Application
-   Exec=/home/seu_usuario/.my-notify/main
+   Exec=/home/wsi/.my_notify/main
    Hidden=false
    NoDisplay=false
    X-GNOME-Autostart-enabled=true
